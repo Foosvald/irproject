@@ -35,6 +35,22 @@ public class Main {
             end = end.replace("&amp;", "");
             end = end.replace("(", "");
             end = end.replace(")", "");
+            end = end.replace("+", "");
+            end = end.replace("-", "");
+            end = end.replace("!", "");
+            end = end.replace("{", "");
+            end = end.replace("}", "");
+            end = end.replace(")", "");
+            end = end.replace("^", "");
+            end = end.replace("~", "");
+            end = end.replace("*", "");
+            end = end.replace("?", "");
+            end = end.replace(":", "");
+            end = end.replace("”", "");
+            end = end.replace("=", "");
+            end = end.replace("/", "");
+            end = end.replace("\\", "");
+            end = end.replace("\"", "");
             end = end.replace("//ref", "");
 
 

@@ -39,7 +39,7 @@ public class Main {
 
 
             if (matcher.find()) {
-                bw.write("{\"name\": \"" + matcher.group(1) + "\"" + ", \"description\": \"" + end + "\"}, \n");
+                bw.write("{\"id\": " + i++ + ", \"name\": \"" + matcher.group(1) + "\"" + ", \"description\": \"" + end + "\"}, \n");
             }
         }
         bw.write("]\n");

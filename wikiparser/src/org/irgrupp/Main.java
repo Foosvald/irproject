@@ -1,5 +1,3 @@
-package org.irgrupp;
-
 import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,9 +7,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = null;
         BufferedWriter bw = null;
+
+        if(args.length < 2) {
+            System.out.print("Must call with input and output file on command line.");
+            return;
+        }
+
         try {
-            br = new BufferedReader(new FileReader("alla_filer_svenska_wiki.xml"));
-            bw = new BufferedWriter(new FileWriter("ut.json"));
+            br = new BufferedReader(new FileReader(args[0]));
+            bw = new BufferedWriter(new FileWriter(args[1]));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -55,7 +59,10 @@ public class Main {
 
 
             if (matcher.find()) {
-                bw.write("{\"id\": " + i++ + ", \"name\": \"" + matcher.group(1) + "\"" + ", \"description\": \"" + end + "\"}, \n");
+                if(i > 0) {
+                    bw.write(",");
+                }
+                bw.write("{\"id\": " + i++ + ", \"name\": \"" + matcher.group(1) + "\"" + ", \"description\": \"" + end + "\"} \n");
             }
         }
         bw.write("]\n");
